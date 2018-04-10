@@ -10,6 +10,7 @@
     "test": "yarn test:standard && yarn test:endpoint",
     "test:standard": "standard index.js src/index.js",
     "test:endpoint": "mocha test/test.js --exit",
+    
     "claudia:create": "claudia create --name account-login --region eu-west-2 --runtime nodejs8.10 --handler index.handler",
     "claudia:test": "claudia test-lambda",
     "claudia:deploy": "claudia update --runtime nodejs8.10 "
