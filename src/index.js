@@ -5,10 +5,10 @@ const Logs = require('bugfixes-account-logging')
 const bugfunctions = bugfixes.functions
 
 module.exports = (event, context, callback) => {
-  let eventBody = JSON.parse(event.body)
-
   const log = new Logs()
   log.action = 'account-login'
+
+  let eventBody = JSON.parse(event.body)
 
   let requestId = null
   if (event.requestContext.requestId) {
@@ -28,17 +28,22 @@ module.exports = (event, context, callback) => {
       log.content.error = error
       log.send()
 
-      callback(error)
+      return callback(error)
     }
 
-    if (!requestId) {
-      requestId = log.generateId(result.authyId)
+    if (result.success) {
+      if (!requestId) {
+        requestId = log.generateId(result.authyId)
+      }
+      log.authyId = result.authyId
+      log.send()
+
+      return callback(null, bugfunctions.lambdaResult(200, {
+        requestId: requestId
+      }))
     }
-    log.authyId = result.authyId
+
     log.send()
-
-    callback(null, bugfunctions.lambdaResult(200, {
-      requestId: requestId
-    }))
+    return callback(null, bugfunctions.lambdaError(201, result.message))
   })
 }

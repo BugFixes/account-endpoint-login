@@ -60,11 +60,11 @@ const payLoad = {
     },
     "apiId": "437o1c2113"
   },
-  "body": "{\"name\":\"Keloran\",\"email\":\"keloran@bugfix.es\",\"cellphone\":7515674596,\"countryCode\":44}",
+  "body": "{\"email\":\"keloran@bugfix.es\"}",
   "isBase64Encoded": false
 }
 
-process.env.AWS_DYNAMO_ENDPOINT = 'http://docker.devel:8000'
+// process.env.AWS_DYNAMO_ENDPOINT = 'http://docker.devel:8000'
 
 describe('Account Login Endpoint', () => {
   it('should get requestid for login', (done) => {
