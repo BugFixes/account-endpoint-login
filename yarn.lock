@@ -262,9 +262,9 @@ bugfixes-account-logging@^0.0.1:
     request-promise "^4.2.2"
     uuid "^3.2.1"
 
-bugfixes-account-models@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/bugfixes-account-models/-/bugfixes-account-models-0.0.3.tgz#12f59e112dbfd5771a50744cf908fba584bef814"
+bugfixes-account-models@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/bugfixes-account-models/-/bugfixes-account-models-0.0.4.tgz#5f6eb7ae744de33db9a0aa0e5723dddc96244939"
   dependencies:
     aws-sdk "^2.220.1"
     bugfixes "^1.5.0"
